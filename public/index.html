@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Dev.Finances</title>
+</head>
+<body>
+
+
+        <header class="title">
+             <img src="./assets/logo.svg" alt="">
+        </header>
+        
+        <main class="container">
+
+          <section id="Info">
+                   
+
+
+            <div id="entradas" class="r1 rect">
+         
+                     <div><h4 class="Txt">Entradas <img class="img-c" src="../assets/income.svg"></h4> </div>
+                     <h2  class="text-success Txt-info" id="Entrada"></h2> 
+         
+                </div>
+                
+                 <div id="saidas" class="r2 rect">
+                     <div><h4 id="saidaTxT" class="Txt">Saídas <img class="img-c" src="../assets/expense.svg"></h4></div>
+                     <h2 class="text-danger Txt-info" id="Saida"></h2>   
+                 </div>
+         
+                <div id="total" class="r3 rect">
+                     <div><h4 class="Txt">Total <img class="img-c" src="../assets/total.svg" alt=""></h4></div>
+                    
+                     <h2 class="Txt-info" id="Total"></h2>
+                </div> 
+         
+          </section> 
+
+
+
+    <section id="transações">
+        <button onclick="transaçoes.modal()" style="border:none;" class="btn mt-4 mb-1 btn-outline-success">+ Nova transação</button>
+        <button id="edit" onclick="transaçoes.alterar()" style="border:none;" class="btn mt-4 mb-1 btn-outline-success">Editar transação</button>
+
+        <table class="table table-bordered table-hover">
+            <thead>
+              <tr>  
+                <th class="t1">Descrição</th>
+                <th class="t2">Valor</th>
+                <th class="t3">Data</th>
+              </tr>  
+            </thead>
+        
+
+            <tbody id="Table-transaction">
+       
+            </tbody>
+        
+          
+        </table>
+      
+    </section>
+    
+  </main>
+
+  <div id="modalOverlay" class="d-none">
+
+    <div id="modal">
+      <h2>Nova transação</h2>
+    <div class="form">  
+      <div class="input-group">
+      <input id="description" class="d-block mb-3 input" type="text" placeholder="Descrição">
+      
+      <input id="value" class="d-block mb-1 input" type="number" placeholder="0,00">
+      
+      <p class="paragrafo">Use o sinal -(negativo) para dispesas e,(virgulas) para casas decimais</p>
+      
+      <input id="date" type="date" class="input">
+    
+     <div class="groupBtn">   
+
+      <button onclick="transaçoes.closeModal()" id="btn1" class="btn btn-outline-danger button">Cancelar</button>
+      <button  onclick="createCard()" id="btn2" class="btn btn-outline-success button">Salvar</button>
+      
+    </div>
+</div>
+     </div>  
+    
+    </div>
+  
+  </div>        
+
+  <div id="modalOverEdit" class="d-none">
+
+    <div id="modalEdit">
+      <h2>Editar transação</h2>
+    <div class="form">  
+
+     <div class="input-group">
+
+      <select class="mb-2" name="transaction" id="transac">
+      
+        <option value="1">---Nenhuma transação---</option>
+        
+
+      </select>
+
+      <input id="newDescription" class="d-block mb-3 input" type="text" placeholder="Descrição">
+      
+      <input id="newValue" class="d-block mb-1 input" type="number" placeholder="0,00">
+      
+      <p class="paragrafo">Use o sinal -(negativo) para dispesas e,(virgulas) para casas decimais</p>
+      
+      <input id="newDate" type="date" class="input">
+    </div>
+     <div class="groupBtn">   
+
+      <button onclick="transaçoes.closeModalEdit()" id="btn1" class="btn btn-outline-danger button">Cancelar</button>
+      <button  onclick="editarTransacao()" id="btn2" class="btn btn-outline-success button">Salvar</button>
+</div>
+     </div>  
+    
+    </div>
+  
+  </div>        
+
+
+
+
+
+    <script src="./scripts/script.js"></script>
+</body>
+</html>
